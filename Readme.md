@@ -56,7 +56,7 @@ Users need to sign up in order to add items to the stock. Once they have logged 
 **Clone the project:**
 
 ```
-git clone git@github.com:virag-ky/Inventory-Application.git
+git clone git@github.com:Ogkpos/pet-inventory.git
 ```
 
 **Install all the dependencies:**
