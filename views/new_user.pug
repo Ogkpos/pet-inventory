@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+
+  div.signup-page
+    div.title
+      h1 Create a new user
+      div.decor
+
+    if error 
+      p.error= error
+
+    form(method='POST', id='signup-form', action='', enctype='multipart/form-data')
+      label(for='avatar') Profile picture: 
+      input#avatar(type='file', name='avatar', multiple)
+      label(for='username') Username: 
+      input#username(type='text', name='username', required, autofocus) 
+      label(for='password') Password: 
+      input#password(type='password', name='password', required)
+      
+    div.signup-container
+      button(type='submit', form='signup-form') Sign Up
+      a(href='/')
+        button Go Back

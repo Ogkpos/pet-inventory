@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    
+    if user
+      if error 
+        p Error getting the content.
+      else 
+        div.home-page
+          div.welcome-container
+            div.welcome-text
+              h1 Welcome #{user.username}!
+              p You added 
+                span #{sumOfItems} 
+                | items to the stock. 
+              a(href='/items')
+                button#items Go to your items
+            img(src='/images/paws.png', alt='paws')
+          div.category
+            h2 Categories:
+            div.decor
+          ul 
+            li 
+              a(href='/bags')
+                img(src='/images/carrier.png', alt='pet carrier')
+                | Bags/Carriers
+            li
+              a(href='beds')
+                img(src='/images/bed.png', alt='pet bed')
+                | Beds
+            li
+              a(href='/clothes') 
+                img(src='/images/clothing.png', alt='pet clothing')
+                | Clothes
+            li
+              a(href='/food') 
+                img(src='/images/food.png', alt='pet food')
+                | Food
+            li
+              a(href='/hygiene') 
+                img(src='/images/shampoo.png', alt='pet shampoo')
+                | Hygiene
+            li
+              a(href='/leashes')
+                img(src='/images/leash.png', alt='dog leash')
+                | Leashes
+            li
+              a(href='/scratching-posts') 
+                img(src='/images/post.png', alt='cat scratching post')
+                | Scratching posts
+            li
+              a(href='/toys') 
+                img(src='/images/toy.png', alt='pet toy')
+                | Toys
+
+
+    else
+      div.intro-page
+        h1 Pet Shop Inventory
+        img.main-image(src='/images/main_image.png', alt='cat and dog')
+        div.intro-container
+          a(href='/new-user')
+            button Sign Up
+          a(href='/login')
+            button Login

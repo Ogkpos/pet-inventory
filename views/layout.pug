@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='icon' href='/images/pet-logo.png')
+  body
+
+    if user
+      nav 
+        a.logo(href='/') Pet Shop Inventory
+        div.divider
+        ul 
+          li#home-text 
+            a(href='/') Home 
+          li 
+            a(href='/')
+              img#home-icon(src='/images/home.png', alt='home icon')
+          li#logout-text
+            a(href='/log-out') Log out
+          li
+            a(href='/log-out')
+              img#logout-icon(src='/images/logout.png', alt='logout icon')
+          li 
+            img#avatar(src='/uploads/' + user.avatar, alt='profile')
+    
+      if req
+        if req.originalUrl !== '/'
+          a(href='javascript:void(0)', onclick='goBack()')
+            button#go-back Go Back 
+      else 
+        a(href='javascript:void(0)', onclick='goBack()')
+          button#go-back Go Back 
+          
+
+    block content
+
+    script.
+      function goBack() {
+        window.history.back()
+      }
+

@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+
+  div.items-page
+    div.title
+      h1= title
+      div.decor
+
+    div.category
+      a.add(href='/scratching-posts/create') Add New
+
+      each post in list 
+        div.item
+          div.info
+            p
+              span #[strong Name:] 
+              |!{post.name}
+            p
+              span #[strong Price:] 
+              |$!{post.price}
+            p
+              span #[strong Number-in-Stock:] 
+              |!{post.number_in_stock}
+            a(href=post.url) View details
+          img(src='/images/post.png', alt='cat scratching post')

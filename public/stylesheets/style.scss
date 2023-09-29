@@ -1,0 +1,544 @@
+@use 'base';
+@use 'loginComponent';
+@use 'titleComponent';
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: #fff;
+  @extend %centered;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid base.$secondary-color1;
+  padding: 8px 0;
+
+  @include base.devices(tablet) {
+    padding: 8px 50px;
+  }
+
+  a.logo {
+    font-family: base.$title;
+    font-size: 1.2rem;
+    color: base.$secondary-color1;
+    width: 50%;
+    text-align: center;
+
+    @include base.devices(tablet) {
+      width: unset;
+      font-size: 1.5rem;
+    }
+  }
+
+  div.divider {
+    width: 3px;
+    height: 25px;
+    background: base.$primary-color;
+    @include base.devices(tablet) {
+      display: none;
+    }
+  }
+
+  ul {
+    @extend %centered;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+
+    @include base.devices(tablet) {
+      justify-content: flex-end;
+      gap: 10%;
+      max-width: 500px;
+    }
+
+    li {
+      @extend %centered;
+      list-style: none;
+      font-size: 1rem;
+      font-weight: 700;
+
+      @include base.devices(tablet) {
+        font-size: 1.2rem;
+      }
+
+      a {
+        @extend %centered;
+        color: base.$secondary-color1;
+
+        &:hover {
+          text-decoration: 5px underline;
+          text-decoration-color: base.$primary-color;
+        }
+      }
+
+      img#home-icon {
+        width: 20px;
+        @include base.devices(tablet) {
+          display: none;
+        }
+      }
+
+      img#logout-icon {
+        width: 18px;
+        @include base.devices(tablet) {
+          display: none;
+        }
+      }
+
+      img#avatar {
+        border-radius: 50%;
+        width: 35px;
+      }
+    }
+
+    li#home-text {
+      @include base.devices(mobile) {
+        display: none;
+      }
+    }
+
+    li#logout-text {
+      @include base.devices(mobile) {
+        display: none;
+      }
+    }
+  }
+}
+
+button#go-back {
+  @extend %button;
+  width: 75px;
+  padding: 5px 0;
+  position: fixed;
+  top: 10%;
+  right: 5%;
+
+  &:hover {
+    @extend %button-hover;
+  }
+}
+
+// Intro page
+div.intro-page {
+  width: 70%;
+  max-width: 500px;
+  @extend %centered;
+
+  h1 {
+    font-family: base.$title;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+
+    @include base.devices(desktop) {
+      font-size: 3rem;
+    }
+
+    @include base.devices(tablet) {
+      font-size: 2.2rem;
+    }
+  }
+
+  img.main-image {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  div.intro-container {
+    @extend %centered;
+
+    flex-direction: row;
+    gap: 25px;
+    height: 100px;
+
+    button {
+      @extend %button;
+
+      &:hover {
+        @extend %button-hover;
+      }
+    }
+  }
+}
+
+// Sign up page
+div.signup-page {
+  @extend %login;
+
+  input#avatar {
+    outline: none;
+  }
+
+  div.signup-container {
+    @extend %button-container;
+  }
+}
+
+// Login page
+div.login-page {
+  @extend %login;
+
+  div.login-container {
+    @extend %button-container;
+  }
+}
+
+// Home page
+div.home-page {
+  @extend %centered;
+  padding-bottom: 100px;
+
+  div.welcome-container {
+    @extend %centered;
+    flex-direction: row;
+    padding: 0 10px;
+    margin: 80px 0;
+    height: 40vh;
+
+    @include base.devices(desktop) {
+      height: 100vh;
+      width: 80vw;
+      margin: unset;
+      margin-bottom: 100px;
+    }
+
+    div.welcome-text {
+      h1 {
+        color: base.$secondary-color2;
+        font-size: 1.6rem;
+
+        @include base.devices(tablet) {
+          font-size: 2rem;
+          margin-bottom: 50px;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+
+        @include base.devices(tablet) {
+          font-size: 1.5rem;
+        }
+
+        span {
+          color: base.$secondary-color2;
+        }
+      }
+
+      button#items {
+        @extend %button;
+        width: 140px;
+        padding: 5px 0;
+        font-size: 0.9rem;
+
+        @include base.devices(tablet) {
+          font-size: 1rem;
+        }
+
+        &:hover {
+          @extend %button-hover;
+        }
+      }
+    }
+
+    img {
+      width: 40%;
+      max-width: 600px;
+    }
+  }
+
+  div.category {
+    @extend %centered;
+    margin-bottom: 80px;
+
+    h2 {
+      font-size: 1.4rem;
+
+      @include base.devices(tablet) {
+        font-size: 1.8rem;
+      }
+    }
+
+    div.decor {
+      @extend %underline;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+    padding: 0 10px;
+
+    @include base.devices(desktop) {
+      height: 50vh;
+    }
+
+    @include base.devices(tablet) {
+      column-gap: 25px;
+      row-gap: 50px;
+    }
+
+    li {
+      list-style: none;
+
+      a {
+        @extend %centered;
+        text-align: center;
+        color: base.$secondary-color2;
+        font-size: 0.9rem;
+        font-weight: 700;
+
+        @include base.devices(tablet) {
+          font-size: 1.2rem;
+        }
+
+        img {
+          width: 50px;
+
+          @include base.devices(tablet) {
+            width: 100px;
+          }
+        }
+
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+  }
+}
+
+// Item's page
+div.items-page {
+  @extend %centered;
+  margin: 150px 0 100px 0;
+  width: 100%;
+  padding: 0 10px;
+
+  @include base.devices(tablet) {
+    width: 60%;
+    max-width: 500px;
+  }
+
+  div.title {
+    @extend %title-component;
+  }
+
+  div.category {
+    @extend %centered;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 25px;
+
+    h2 {
+      font-size: 1.3rem;
+
+      @include base.devices(desktop) {
+        font-size: 1.6rem;
+      }
+    }
+
+    a.add {
+      @extend %button;
+      width: 80px;
+      font-size: 0.9rem;
+      padding: 5px;
+      text-align: center;
+      margin-bottom: 25px;
+
+      &:hover {
+        @extend %button-hover;
+      }
+    }
+
+    div.item {
+      @extend %centered;
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 15px 0;
+      border-radius: 5px;
+      border: solid base.$secondary-color2;
+      margin-bottom: 25px;
+      box-shadow: 5px 5px 5px gainsboro;
+
+      div.info {
+        @extend %centered;
+        align-items: flex-start;
+        width: 60%;
+
+        @include base.devices(desktop) {
+          font-size: 1.2rem;
+        }
+
+        p {
+          span {
+            color: base.$secondary-color2;
+            word-break: break-all;
+          }
+        }
+
+        a {
+          font-weight: 700;
+          background: base.$primary-color;
+          color: base.$secondary-color1;
+          border-radius: 5px;
+          padding: 5px;
+          font-size: 0.9rem;
+          margin-top: 25px;
+
+          &:hover {
+            background: orange;
+          }
+        }
+      }
+
+      img {
+        width: 60px;
+
+        @include base.devices(tablet) {
+          width: 80px;
+        }
+      }
+    }
+
+    p.status {
+      font-weight: 700;
+      margin-top: 20px;
+
+      @include base.devices(desktop) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  div.divider {
+    width: 100%;
+    height: 3px;
+    background: base.$secondary-color2;
+    margin-bottom: 25px;
+  }
+}
+
+// Form page
+div.form-page {
+  margin: 150px 0 100px 0;
+  padding: 0 15px;
+
+  @include base.devices(tablet) {
+    width: 60%;
+    max-width: 500px;
+  }
+
+  div.title {
+    @extend %title-component;
+  }
+
+  ul {
+    padding: 0 25px;
+    margin-bottom: 25px;
+
+    li {
+      color: red;
+      font-size: 1.1rem;
+    }
+  }
+
+  form {
+    @extend %centered;
+    align-items: flex-start;
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 5px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      outline: 1px solid base.$secondary-color1;
+
+      &:focus {
+        outline: solid base.$primary-color;
+      }
+    }
+
+    select {
+      background: #fff;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: base.$secondary-color2;
+      margin-bottom: 5px;
+    }
+
+    button {
+      @extend %button;
+      width: 100px;
+      font-size: 1rem;
+
+      &:hover {
+        @extend %button-hover;
+      }
+    }
+  }
+}
+
+// Details page
+div.details-page {
+  margin: 150px 0 100px 0;
+  padding: 0 15px;
+  width: 100%;
+
+  @include base.devices(tablet) {
+    width: 60%;
+    max-width: 500px;
+  }
+
+  div.title {
+    @extend %title-component;
+  }
+
+  div.details {
+    border: 2px solid base.$secondary-color2;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow: 5px 5px 5px gainsboro;
+    width: 100%;
+
+    p {
+      margin-bottom: 20px;
+
+      @include base.devices(tablet) {
+        font-size: 1.2rem;
+      }
+
+      span {
+        color: base.$secondary-color2;
+      }
+    }
+
+    div.form-container {
+      display: flex;
+      gap: 25px;
+      margin-top: 25px;
+
+      form {
+        button {
+          @extend %button;
+          width: 100px;
+          padding: 5px;
+
+          &:hover {
+            @extend %button-hover;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Chewy&display=swap');
+
+$primary-color: #92e3a9;
+$secondary-color1: #263238;
+$secondary-color2: #629871;
+$title: 'Chewy', sans-serif;
+$font-stack: 'Baloo 2', sans-serif;
+
+%centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+%button {
+  color: $secondary-color1;
+  font-weight: 700;
+  font-size: 1rem;
+  background: $primary-color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 12px;
+  width: 120px;
+  box-shadow: 5px 5px 0 $secondary-color1;
+}
+
+%button-hover {
+  cursor: pointer;
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+%message {
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+%underline {
+  width: 100px;
+  height: 3px;
+  border-radius: 3px;
+  background: $primary-color;
+}
+
+@mixin devices($breakpoint) {
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 601px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-stack;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  color: $secondary-color1;
+  @extend %centered;
+
+  h1 {
+    color: $secondary-color1;
+  }
+}

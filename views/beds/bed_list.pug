@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+
+  div.items-page
+    div.title
+      h1= title
+      div.decor
+
+    div.category
+      a.add(href='/beds/create') Add New
+
+      each bed in list 
+        div.item
+          div.info
+            p
+              span #[strong Name:] 
+              |!{bed.name}
+            p
+              span #[strong Price:] 
+              |$!{bed.price}
+            p
+              span #[strong Number-in-Stock:] 
+              |!{bed.number_in_stock}
+            a(href=bed.url) View details
+          img(src='/images/bed.png', alt='pet bed')

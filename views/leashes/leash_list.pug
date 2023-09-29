@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+
+  div.items-page
+    div.title
+      h1= title
+      div.decor
+
+    div.category
+      a.add(href='/leashes/create') Add New
+
+      each leash in list 
+        div.item
+          div.info
+            p
+              span #[strong Name:] 
+              |!{leash.name}
+            p
+              span #[strong Price:] 
+              |$!{leash.price}
+            p
+              span #[strong Number-in-Stock:] 
+              |!{leash.number_in_stock}
+            a(href=leash.url) View details
+          img(src='/images/leash.png', alt='pet leash')
